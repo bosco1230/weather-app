@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/weatherapp.css" />
     <link rel="stylesheet" href="./css/currentweather.css" />
-    <link rel="stylesheet" href="./css/5days.css" />
+    <link rel="stylesheet" href="css/5days.css" />
     <link rel="stylesheet" href="./css/3hrs.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,22 +19,93 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
-    <link
-      rel="icon"
-      href="weather_images/sun.ico"
-      type="image/x-icon"
-      sizes="32x32"
-    />
+    <link rel="icon" href="images/sun.ico" type="image/x-icon" sizes="32x32" />
     <title>Weather App</title>
-    <script src="3hr.js"></script>
+    <script src="3hrs.js"></script>
+    <script src="currentweather.js" defer></script>
+    <script src="5days.js" defer></script>
   </head>
   <body>
     <header></header>
     <section class="mainSection">
-      <section class="currentWeather">
-        <p>Hi</p>
+      <section class="main">
+        <section class="headerBar">
+          <select class="favoriteCities"></select>
+          <div id="searchCity">
+            <input id="searchBar" placeholder="City Name" />
+            <button id="searchBtn">Search</button>
+          </div>
+        </section>
+        <h3 id="title">Current weather</h3>
+        <section class="currentWeather">
+          <div>
+            <i class="fa-solid fa-star" id="star"></i>
+            <h1 id="currentWeatherCity">City Name</h1>
+            <img
+              id="currentWeatherIcon"
+              src="images/search.png"
+              alt="currentWeather"
+            />
+            <p id="currentWeatherTemp">0°C</p>
+            <p id="currentWeatherFeel">Feel like</p>
+          </div>
+        </section>
+        <section class="forecast">
+          <h3 id="title">Daily Forecast - 5 days</h3>
+          <ul class="dayForecast">
+            <li id="day1">
+              <h1 id="dayOne">Loading</h1>
+              <img
+                id="weatherIcon1"
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather"
+              />
+              <h2 id="day1Temperature">0°C</h2>
+              <h4>Humidity:0%</h4>
+            </li>
+            <li id="day2">
+              <h1 id="dayTwo">Loading</h1>
+              <img
+                id="weatherIcon2"
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather"
+              />
+              <h2 id="day2Temperature">0°C</h2>
+              <h4>Humidity:0%</h4>
+            </li>
+            <li id="day3">
+              <h1 id="dayThree">Loading</h1>
+              <img
+                id="weatherIcon3"
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather"
+              />
+              <h2 id="day3Temperature">0°C</h2>
+              <h4>Humidity:0%</h4>
+            </li>
+            <li id="day4">
+              <h1 id="dayFour">Loading</h1>
+              <img
+                id="weatherIcon4"
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather"
+              />
+              <h2 id="day4Temperature">0°C</h2>
+              <h4>Humidity:0%</h4>
+            </li>
+            <li id="day5">
+              <h1 id="dayFive">Loading</h1>
+              <img
+                id="weatherIcon5"
+                src="https://openweathermap.org/img/wn/10d@2x.png"
+                alt="weather"
+              />
+              <h2 id="day5Temperature">0°C</h2>
+              <h4>Humidity:0%</h4>
+            </li>
+          </ul>
+        </section>
       </section>
-      <section class="forecast"></section>
       <section class="threeHrRange"></section>
     </section>
   </body>

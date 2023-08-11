@@ -1,1 +1,44 @@
-/*# sourceMappingURL=currentweather.css.map */
+html body .mainSection .main .headerBar {
+  display: flex;
+  justify-content: space-between;
+}
+html body .mainSection .main .headerBar .favoriteCities {
+  color: white;
+  width: 20rem;
+}
+html body .mainSection .main .headerBar #searchCity #searchBar {
+  width: 15rem;
+  height: 2rem;
+  padding-left: 0.5rem;
+  font-size: 1rem;
+}
+html body .mainSection .main .headerBar #searchCity #searchBar::-moz-placeholder {
+  font-size: 1rem;
+}
+html body .mainSection .main .headerBar #searchCity #searchBar::placeholder {
+  font-size: 1rem;
+}
+html body .mainSection .main .headerBar #searchCity #searchBtn {
+  width: 5rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+html body .mainSection .main .currentWeather {
+  border-radius: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 95%;
+}
+html body .mainSection .main .currentWeather #currentWeatherCity {
+  font-size: 3rem;
+  margin: 1rem;
+}
+html body .mainSection .main .currentWeather #currentWeatherTemp,
+html body .mainSection .main .currentWeather #currentWeatherFeel {
+  font-size: 1.5rem;
+}
+html body .mainSection .main .currentWeather #currentWeatherIcon {
+  width: 10rem;
+  height: 10rem;
+}/*# sourceMappingURL=currentweather.css.map */

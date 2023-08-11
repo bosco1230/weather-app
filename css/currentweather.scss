@@ -1,0 +1,54 @@
+html {
+    body {
+        .mainSection {
+            .main {
+                
+                .headerBar {
+                    display: flex;
+                    justify-content: space-between;
+                    .favoriteCities {
+                        color: white;
+                        width: 20rem;
+                    }
+                    #searchCity {
+                        #searchBar {
+                            width: 15rem;
+                            height: 2rem;
+                            padding-left: 0.5rem;
+                            font-size: 1rem;
+                        }
+                        #searchBar::placeholder {
+                            font-size: 1rem;
+                        }
+                        #searchBtn {
+                            width: 5rem;
+                            height: 2rem;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .currentWeather {
+                    
+                    border-radius: 10px;
+                    padding: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                    #currentWeatherCity {
+                        font-size: 3rem;
+                        margin: 1rem;
+                    }
+                    #currentWeatherTemp,
+                    #currentWeatherFeel {
+                        font-size: 1.5rem;
+                    }
+                    #currentWeatherIcon {
+                        width: 10rem;
+                        height: 10rem;
+                    }
+                    width:95%
+                }
+              
+            }
+        }
+    }
+}
