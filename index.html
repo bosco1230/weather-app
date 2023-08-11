@@ -24,6 +24,7 @@
     <script src="3hrs.js"></script>
     <script src="currentweather.js" defer></script>
     <script src="5days.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYNsBffVio3kDhUhTIhgdZ7fch_kbsYbQ&libraries=places"></script>
   </head>
   <body>
     <header></header>
@@ -32,21 +33,23 @@
         <section class="headerBar">
           <select class="favoriteCities"></select>
           <div id="searchCity">
-            <input id="searchBar" placeholder="City Name" />
+            <input id="searchBar" placeholder="City Name" autocomplete="off" />
             <button id="searchBtn">Search</button>
           </div>
         </section>
         <h3 id="title">Current weather</h3>
         <section class="currentWeather">
           <div>
-            <i class="fa-solid fa-star" id="star"></i>
+            <!--<i class="fa-solid fa-star" id="star"></i>-->
+            <i class="fa-regular fa-star" id="star1"></i>
             <h1 id="currentWeatherCity">City Name</h1>
             <img
               id="currentWeatherIcon"
-              src="images/search.png"
+              src="https://openweathermap.org/img/wn/10d@2x.png"
               alt="currentWeather"
             />
-            <p id="currentWeatherTemp">0°C</p>
+            <p id="currentWeatherTemp">#c</p>
+            <p id="currentWeatherHumidity">0%</p>
             <p id="currentWeatherFeel">Feel like</p>
           </div>
         </section>

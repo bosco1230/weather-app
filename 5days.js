@@ -16,54 +16,80 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>`;
     }
 
-    const getWeatherDetails=(cityName,lat,lon)=>{
-    const weather_api=`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${APIkey}`
-        
-        fetch(weather_api).then(res=>res.json()).then(data=>{
-            const uniqueDays=[]
-            
+    const getWeatherDetails = (cityName, lat, lon) => {
+        const weather_api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lat=${lat}&lon=${lon}&appid=${APIkey}`;
 
-            const fiveDays=data.list.filter(forecast=>{
-                const forecastDate=new Date(forecast.dt_txt).getDate();
-                if(!uniqueDays.includes(forecastDate)){
-                    if(uniqueDays.length>=5){
-                        return false;
+        fetch(weather_api)
+            .then(res => res.json())
+            .then(data => {
+                const uniqueDays = [];
+
+                const fiveDays = data.list.filter(forecast => {
+                    const forecastDate = new Date(forecast.dt_txt).getDate();
+                    if (!uniqueDays.includes(forecastDate)) {
+                        if (uniqueDays.length >= 5) {
+                            return false;
+                        }
+                        return uniqueDays.push(forecastDate);
                     }
-                   return uniqueDays.push(forecastDate);
-                    
-                }
-                
+                });
+
+                cityInput.value = "";
+                weatherCardsDiv.innerHTML = "";
+
+                fiveDays.forEach(weatherItem => {
+                    weatherCardsDiv.insertAdjacentHTML('beforeend', weatherCard(weatherItem));
+                });
             })
-
-            cityInput.value="";
-            weatherCardsDiv.innerHTML="";
-
-            console.log(fiveDays)
-            fiveDays.forEach(weatherItem=>{
-                weatherCardsDiv.insertAdjacentHTML('beforeend', weatherCard(weatherItem))
-               
-            })            
-        }).catch(()=>{
-            alert('An error')
-        })
+            .catch(() => {
+                alert('An error occurred while fetching weather data.');
+            });
     }
-    
-    const getCoordinates=()=>{
-        const cityName=cityInput.value.trim();
-        if(!cityName)return;
-        const GEOCODING_API_URL=`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIkey}`;
-        
-    
-        fetch(GEOCODING_API_URL).then(res=>res.json()).then(data=>{
-            if(!data.length) return alert(`${cityName} cannot be found!`)
-            const{name,lat,lon}=data[0];
-        getWeatherDetails(name,lat,lon);
-        }).catch(()=>{
-            alert('An error')
-        })
+
+    const getCoordinates = () => {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    getWeatherDetails('', latitude, longitude); // Empty string as city name for default
+                },
+                (error) => {
+                    fetchWeatherByCity('Vancouver');
+                    alert('Error getting geolocation: ' + error.message);
+                }
+            );
+        } else {
+            fetchWeatherByCity('Vancouver');
+            alert('Geolocation is not available in this browser.');
+        }
     }
-     
-    searchButton.addEventListener('click',getCoordinates);
+
+    getCoordinates();
+
+    searchButton.addEventListener('click', () => {
+        const cityName = cityInput.value.trim();
+        if (cityName) {
+            fetchWeatherByCity(cityName);
+        }
+    });
+
+    const fetchWeatherByCity = (cityName) => {
+        const GEOCODING_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`;
+
+        fetch(GEOCODING_API_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (!data.coord) {
+                    alert(`${cityName} cannot be found!`);
+                    return;
+                }
+                const { lat, lon } = data.coord;
+                getWeatherDetails(cityName, lat, lon);
+            })
+            .catch(() => {
+                alert('An error occurred while fetching weather data.');
+            });
+    }
     });
     /*document.addEventListener("DOMContentLoaded", () => {
 const apikey = "4d697593455ee5751089d0a14f15ecff";

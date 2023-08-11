@@ -7,13 +7,34 @@ html {
                     display: flex;
                     justify-content: space-between;
                     .favoriteCities {
-                        color: white;
-                        width: 20rem;
+                        font-size: 16px;
+                        padding: 8px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        background-color: white;
+                        color: #333;
+                        width: 200px;
+                        
+                        &:focus {
+                            border-color: #4CAF50;
+                            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+                            outline: none;
+                        }
+                        
+                        &::after {
+                            content: '\25BE';
+                            position: absolute;
+                            top: 50%;
+                            right: 10px;
+                            transform: translateY(-50%);
+                            pointer-events: none;
+                        }
                     }
+                    
                     #searchCity {
                         #searchBar {
                             width: 15rem;
-                            height: 2rem;
+                            height: 2rem; 
                             padding-left: 0.5rem;
                             font-size: 1rem;
                         }
@@ -38,8 +59,9 @@ html {
                         margin: 1rem;
                     }
                     #currentWeatherTemp,
-                    #currentWeatherFeel {
-                        font-size: 1.5rem;
+                    #currentWeatherFeel,
+                    #currentWeatherHumidity{
+                    font-size: 1.5rem;
                     }
                     #currentWeatherIcon {
                         width: 10rem;
