@@ -1,10 +1,29 @@
+@charset "UTF-8";
 html body .mainSection .main .headerBar {
   display: flex;
   justify-content: space-between;
 }
 html body .mainSection .main .headerBar .favoriteCities {
-  color: white;
-  width: 20rem;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  width: 200px;
+}
+html body .mainSection .main .headerBar .favoriteCities:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  outline: none;
+}
+html body .mainSection .main .headerBar .favoriteCities::after {
+  content: "▾";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 html body .mainSection .main .headerBar #searchCity #searchBar {
   width: 15rem;
@@ -35,7 +54,8 @@ html body .mainSection .main .currentWeather #currentWeatherCity {
   margin: 1rem;
 }
 html body .mainSection .main .currentWeather #currentWeatherTemp,
-html body .mainSection .main .currentWeather #currentWeatherFeel {
+html body .mainSection .main .currentWeather #currentWeatherFeel,
+html body .mainSection .main .currentWeather #currentWeatherHumidity {
   font-size: 1.5rem;
 }
 html body .mainSection .main .currentWeather #currentWeatherIcon {
