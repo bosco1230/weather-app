@@ -1,0 +1,86 @@
+html {
+    body {
+        .mainSection {
+            .forecast {
+                display: flex;
+                flex-direction: column;
+                .dayForecast {
+                    height: auto;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    background-color: none;
+                    #day1,
+                    #day2,
+                    #day3,
+                    #day4,
+                    #day5 {
+                        width: 7rem;
+                        height: auto;
+                        padding: 2rem 1rem;
+                        margin:0 1rem 0 1rem;
+                        background-color: #118ab2;
+                        border-radius: 10px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        h1 {
+                            margin: 0;
+                            font-size: 1.5rem;
+                        }
+                        h2 {
+                            margin: 0;
+                        }
+                        #weatherIcon1,
+                        #weatherIcon2,
+                        #weatherIcon3,
+                        #weatherIcon4,
+                        #weatherIcon5 {
+                            width: 3rem;
+                            height: 3rem;
+                            margin: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        body {
+            .mainSection {
+                .main {
+                    .forecast {
+                        .dayForecast {
+                            #today,
+                            #tomorrow,
+                            #D2,
+                            #D3,
+                            #D4 {
+                                background-image: url("../weather_images/bg2.avif");
+                                width: 1.5rem;
+                                padding: 1rem;
+                                margin: 0.3rem;
+                                h1 {
+                                    font-size: 0.5rem;
+                                }
+                                h2 {
+                                    font-size: 0.7rem;
+                                }
+                                #weatherIcon1,
+                                #weatherIcon2,
+                                #weatherIcon3,
+                                #weatherIcon4,
+                                #weatherIcon5 {
+                                    width: 1.5rem;
+                                    height: 1.5rem;
+                                    margin: 1rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
