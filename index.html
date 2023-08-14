@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="./css/weatherapp.css" />
     <link rel="stylesheet" href="./css/currentweather.css" />
     <link rel="stylesheet" href="css/5days.css" />
@@ -20,10 +20,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     />
     <link rel="icon" href="images/sun.ico" type="image/x-icon" sizes="32x32" />
-    <title>Weather App</title>
-    <script src="3hrs.js"></script>
-    <script src="currentweather.js" defer></script>
-    <script src="5days.js" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYNsBffVio3kDhUhTIhgdZ7fch_kbsYbQ&libraries=places"></script>
   </head>
   <body>
@@ -109,7 +105,51 @@
           </ul>
         </section>
       </section>
-      <section class="threeHrRange"></section>
+      <div id="threeHrsbody">
+        <div class="threeHrsInfo" id="threeHrs1">
+            <p class ="threeHrsTime">12am - 3am</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+        <div class="threeHrsInfo" id="threeHrs2">
+            <p class ="threeHrsTime">3am - 6am</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+        <div class="threeHrsInfo" id="threeHrs3">
+            <p class ="threeHrsTime">6am - 9am</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+        <div class="threeHrsInfo" id="threeHrs4">
+            <p class ="threeHrsTime">9am - 12pm</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+        <div class="threeHrsInfo" id="threeHrs6">
+            <p class ="threeHrsTime">12pm - 3pm</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+        <div class="threeHrsInfo" id="threeHrs6">
+            <p class ="threeHrsTime">3pm - 6pm</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+        <div class="threeHrsInfo" id="threeHrs7">
+            <p class ="threeHrsTime">6pm - 9pm</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+        <div class="threeHrsInfo" id="threeHrs8">
+            <p class ="threeHrsTime">9pm - 12am</p>
+            <img class="weatherIcon" src="" alt="">
+            <p class ="threeHrsTemp"></p>
+        </div>
+    </div>
     </section>
+    <script src="3hrs.js"></script>
+    <script src="currentweather.js" defer></script>
+    <script src="5days.js" defer></script>
   </body>
 </html>

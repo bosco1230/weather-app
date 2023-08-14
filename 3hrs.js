@@ -41,7 +41,7 @@ function threeHourRange() {
 
                         const threeHrsTemp = document.getElementsByClassName("threeHrsTemp")
                         const temp = Math.floor(weather["main"]["temp"])
-                        threeHrsTemp[index].innerHTML = temp
+                        threeHrsTemp[index].innerHTML = temp+"℃"
 
                         index += 1;
                         console.log(date.getDate(), weather["main"]["temp"])
