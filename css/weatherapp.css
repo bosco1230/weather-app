@@ -1,30 +1,60 @@
-html {
-  font-family: Arial, Helvetica, sans-serif;
-}
-html body {
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-}
-html body header h1 {
-  color: white;
-  display: flex;
-  justify-content: center;
-}
-html body .mainSection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 5rem;
-  margin: 5rem 0;
-}
-html body .mainSection .main {
-  width: auto;
-}
-html body .mainSection .main #title {
-  color: white;
-  font-size: 2rem;
-  margin: 1rem 0;
+/** {
+   font-family: Arial, Helvetica, sans-serif;
+   body {
+    background-image: url("../images/mainBg.avif");
+       background-repeat: no-repeat;
+       background-size: cover;
+       header {
+           h1 {
+               color: white;
+               display: flex;
+               justify-content: center;
+           }
+       }
+       .mainSection {
+           display: flex;
+           flex-direction: column;
+           padding: 0 5rem;
+           margin: 5rem 0;
+        width: auto;
+            #title {
+                color: white;
+                font-size: 2rem;
+                margin: 1rem 0;
+               }
+               .mainPart{
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+               }
+
+       }
+    }
+   }*/
+@media (max-width: 375px) {
+  * body {
+    background-image: url("../images/mainBg.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  * body header h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+  * body .mainSection {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+    margin: 5rem 0;
+    width: auto;
+  }
+  * body .mainSection #title {
+    display: none;
+  }
+  * body .mainPart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }/*# sourceMappingURL=weatherapp.css.map */

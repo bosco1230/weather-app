@@ -29,15 +29,19 @@
   <body>
     <header></header>
     <section class="mainSection">
-      <section class="main">
-        <section class="headerBar">
-          <select class="favoriteCities"></select>
-          <div id="searchCity">
-            <input id="searchBar" placeholder="City Name" autocomplete="off" />
-            <button id="searchBtn">Search</button>
-          </div>
-        </section>
-        <h3 id="title">Current weather</h3>
+      <section class="headerBar">
+        <select class="favoriteCities">
+          <option disabled selected value="Favorite Cities">
+            Favorite Cities
+          </option>
+        </select>
+        <div id="searchCity">
+          <input id="searchBar" placeholder="City Name" autocomplete="off" />
+          <button id="searchBtn">Search</button>
+        </div>
+      </section>
+      <h3 id="title">Current weather</h3>
+      <section class="mainPart">
         <section class="currentWeather">
           <div>
             <!--<i class="fa-solid fa-star" id="star"></i>-->
@@ -56,7 +60,7 @@
         <section class="forecast">
           <h3 id="title">Daily Forecast - 5 days</h3>
           <ul class="dayForecast">
-            <li id="day1">
+            <li id="day">
               <h1 id="dayOne">Loading</h1>
               <img
                 id="weatherIcon1"
@@ -66,7 +70,7 @@
               <h2 id="day1Temperature">0°C</h2>
               <h4>Humidity:0%</h4>
             </li>
-            <li id="day2">
+            <li id="day">
               <h1 id="dayTwo">Loading</h1>
               <img
                 id="weatherIcon2"
@@ -76,7 +80,7 @@
               <h2 id="day2Temperature">0°C</h2>
               <h4>Humidity:0%</h4>
             </li>
-            <li id="day3">
+            <li id="day">
               <h1 id="dayThree">Loading</h1>
               <img
                 id="weatherIcon3"
@@ -86,7 +90,7 @@
               <h2 id="day3Temperature">0°C</h2>
               <h4>Humidity:0%</h4>
             </li>
-            <li id="day4">
+            <li id="day">
               <h1 id="dayFour">Loading</h1>
               <img
                 id="weatherIcon4"
@@ -96,7 +100,7 @@
               <h2 id="day4Temperature">0°C</h2>
               <h4>Humidity:0%</h4>
             </li>
-            <li id="day5">
+            <li id="day">
               <h1 id="dayFive">Loading</h1>
               <img
                 id="weatherIcon5"
@@ -108,8 +112,9 @@
             </li>
           </ul>
         </section>
+
+        <section class="threeHrRange"></section>
       </section>
-      <section class="threeHrRange"></section>
     </section>
   </body>
 </html>

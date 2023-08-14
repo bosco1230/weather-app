@@ -10,11 +10,7 @@ html {
                     flex-direction: row;
                     justify-content: space-between;
                     background-color: none;
-                    #day1,
-                    #day2,
-                    #day3,
-                    #day4,
-                    #day5 {
+                    #day {
                         width: 7rem;
                         height: auto;
                         padding: 2rem 1rem;
@@ -49,7 +45,7 @@ html {
     @media only screen and (max-width: 375px) {
         body {
             .mainSection {
-                .main {
+                
                     .forecast {
                         .dayForecast {
                             #today,
@@ -79,7 +75,7 @@ html {
                             }
                         }
                     }
-                }
+                
             }
         }
     }

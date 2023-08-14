@@ -21,30 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(data);
     
             document.querySelector('#currentWeatherCity').innerHTML = data.name;
-            document.querySelector('#currentWeatherTemp').innerHTML = 'Temperature: ' + data.main.temp.toFixed(1) + "°C";
+            document.querySelector('#currentWeatherTemp').innerHTML = 'Temperature: ' + data.main.temp.toFixed(0) + "°C";
             document.querySelector('#currentWeatherHumidity').innerHTML = 'Humidity: ' + data.main.humidity + '%';
-            document.querySelector('#currentWeatherFeel').innerHTML = 'Feels Like: ' + data.main.feels_like.toFixed(1) + '°C';
-            document.querySelector('#currentWeatherIcon').src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
-        } catch (error) {
-            console.error('Error fetching weather:', error);
-        }
-    }
-    
-    async function checkWeatherByPlace(place) {
-        try {
-            const cityName = place.formatted_address;
-            const response = await fetch(`${apiUrl}&q=${cityName}&appid=${apiKey}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            const data = await response.json();
-    
-            console.log(data);
-    
-            document.querySelector('#currentWeatherCity').innerHTML = data.name;
-            document.querySelector('#currentWeatherTemp').innerHTML = 'Temperature: ' + data.main.temp.toFixed(1) + "°C";
-            document.querySelector('#currentWeatherHumidity').innerHTML = 'Humidity: ' + data.main.humidity + '%';
-            document.querySelector('#currentWeatherFeel').innerHTML = 'Feels Like: ' + data.main.feels_like.toFixed(1) + '°C';
+            document.querySelector('#currentWeatherFeel').innerHTML = 'Feels Like: ' + data.main.feels_like.toFixed(0) + '°C';
             document.querySelector('#currentWeatherIcon').src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
         } catch (error) {
             console.error('Error fetching weather:', error);

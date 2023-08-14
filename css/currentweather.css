@@ -1,9 +1,9 @@
 @charset "UTF-8";
-html body .mainSection .main .headerBar {
+html body .mainSection .headerBar {
   display: flex;
   justify-content: space-between;
 }
-html body .mainSection .main .headerBar .favoriteCities {
+html body .mainSection .headerBar .favoriteCities {
   font-size: 16px;
   padding: 8px;
   border: 1px solid #ccc;
@@ -12,12 +12,12 @@ html body .mainSection .main .headerBar .favoriteCities {
   color: #333;
   width: 200px;
 }
-html body .mainSection .main .headerBar .favoriteCities:focus {
+html body .mainSection .headerBar .favoriteCities:focus {
   border-color: #4CAF50;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
   outline: none;
 }
-html body .mainSection .main .headerBar .favoriteCities::after {
+html body .mainSection .headerBar .favoriteCities::after {
   content: "▾";
   position: absolute;
   top: 50%;
@@ -25,40 +25,112 @@ html body .mainSection .main .headerBar .favoriteCities::after {
   transform: translateY(-50%);
   pointer-events: none;
 }
-html body .mainSection .main .headerBar #searchCity #searchBar {
+html body .mainSection .headerBar #searchCity #searchBar {
   width: 15rem;
   height: 2rem;
   padding-left: 0.5rem;
   font-size: 1rem;
 }
-html body .mainSection .main .headerBar #searchCity #searchBar::-moz-placeholder {
+html body .mainSection .headerBar #searchCity #searchBar::-moz-placeholder {
   font-size: 1rem;
 }
-html body .mainSection .main .headerBar #searchCity #searchBar::placeholder {
+html body .mainSection .headerBar #searchCity #searchBar::placeholder {
   font-size: 1rem;
 }
-html body .mainSection .main .headerBar #searchCity #searchBtn {
+html body .mainSection .headerBar #searchCity #searchBtn {
   width: 5rem;
   height: 2rem;
   font-size: 1rem;
 }
-html body .mainSection .main .currentWeather {
+html body .mainSection .mainPart .currentWeather {
   border-radius: 10px;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   width: 95%;
 }
-html body .mainSection .main .currentWeather #currentWeatherCity {
+html body .mainSection .mainPart .currentWeather #currentWeatherCity {
   font-size: 3rem;
   margin: 1rem;
 }
-html body .mainSection .main .currentWeather #currentWeatherTemp,
-html body .mainSection .main .currentWeather #currentWeatherFeel,
-html body .mainSection .main .currentWeather #currentWeatherHumidity {
+html body .mainSection .mainPart .currentWeather #currentWeatherTemp,
+html body .mainSection .mainPart .currentWeather #currentWeatherFeel,
+html body .mainSection .mainPart .currentWeather #currentWeatherHumidity {
   font-size: 1.5rem;
 }
-html body .mainSection .main .currentWeather #currentWeatherIcon {
+html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
   width: 10rem;
   height: 10rem;
+}
+
+@media only screen and (max-width: 375px) {
+  html body .mainSection .headerBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  html body .mainSection .headerBar .favoriteCities {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: #333;
+    width: 8rem;
+    height: 2rem;
+  }
+  html body .mainSection .headerBar .favoriteCities:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+  }
+  html body .mainSection .headerBar .favoriteCities::after {
+    content: "▾";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  html body .mainSection .headerBar #searchCity {
+    display: flex;
+    align-items: center;
+  }
+  html body .mainSection .headerBar #searchCity #searchBar {
+    width: 8rem;
+    height: 1.7rem;
+    padding: 0 0.2rem;
+    font-size: 0.5rem;
+  }
+  html body .mainSection .headerBar #searchCity #searchBar::-moz-placeholder {
+    font-size: 0.5rem;
+  }
+  html body .mainSection .headerBar #searchCity #searchBar::placeholder {
+    font-size: 0.5rem;
+  }
+  html body .mainSection .headerBar #searchCity #searchBtn {
+    width: 4rem;
+    height: 1.7rem;
+    font-size: 0.5rem;
+    padding: 0;
+  }
+  html body .mainSection .mainPart {
+    display: flex;
+  }
+  html body .mainSection .mainPart .currentWeather {
+    display: flex;
+  }
+  html body .mainSection .mainPart .currentWeather #currentWeatherCity {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  html body .mainSection .mainPart .currentWeather #currentWeatherTemp,
+  html body .mainSection .mainPart .currentWeather #currentWeatherFeel,
+  html body .mainSection .mainPart .currentWeather #currentWeatherHumidity {
+    font-size: 1rem;
+  }
+  html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
+    width: 3rem;
+    height: 3rem;
+  }
 }/*# sourceMappingURL=currentweather.css.map */

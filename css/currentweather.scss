@@ -1,7 +1,7 @@
 html {
     body {
         .mainSection {
-            .main {
+           
                 
                 .headerBar {
                     display: flex;
@@ -28,7 +28,7 @@ html {
                             right: 10px;
                             transform: translateY(-50%);
                             pointer-events: none;
-                        }
+                        } 
                     }
                     
                     #searchCity {
@@ -48,6 +48,7 @@ html {
                         }
                     }
                 }
+                .mainPart{
                 .currentWeather {
                     
                     border-radius: 10px;
@@ -70,7 +71,90 @@ html {
                     width:95%
                 }
               
+                }
+        }
+    }
+}
+    @media only screen and (max-width: 375px) {
+        html{
+        body {
+            .mainSection {
+                
+                    
+                    .headerBar {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center; 
+                        .favoriteCities {
+                            font-size: 16px;
+                            padding: 8px;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            background-color: white;
+                            color: #333;
+                            width: 8rem;
+                            height: 2rem;
+                            
+                            &:focus {
+                                border-color: #4CAF50;
+                                box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+                                outline: none;
+                            }
+                            
+                            &::after {
+                                content: '\25BE';
+                                position: absolute;
+                                top: 50%;
+                                right: 10px;
+                                transform: translateY(-50%);
+                                pointer-events: none;
+                            }
+                        }
+                   
+                        #searchCity {
+                            display: flex;
+                            align-items: center;
+                            #searchBar {
+                                width: 8rem;
+                                height: 1.7rem;
+                                padding: 0 0.2rem;
+                                font-size: 0.5rem;
+                            }
+                            #searchBar::placeholder {
+                                font-size: 0.5rem;
+                            }
+                            #searchBtn {   
+                                width: 4rem;
+                                height: 1.7rem;
+                                font-size: 0.5rem;
+                                padding: 0;
+                            }
+                        }
+                    }
+                    .mainPart{
+                        display: flex;
+                    .currentWeather {
+                        display: flex;
+                        #currentWeatherCity {
+                            font-size: 1.5rem;
+                            margin: 1rem;
+                        }
+                        #currentWeatherTemp,
+                        #currentWeatherFeel,
+                        #currentWeatherHumidity {
+                            font-size: 1rem;
+                        }
+                        #currentWeatherIcon { 
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                    }
+                }
+                
+                
+                  
             }
+            
         }
     }
 }
