@@ -7,7 +7,7 @@ const request = `https://api.openweathermap.org/data/2.5/forecast?q=${defaultCit
 const weatherIcon = document.getElementsByClassName("weatherIcon");
 // console.log(weatherIcon)
 
-function threeHourRange() {
+threeHourRange() {
     fetch(request)
     .then (
         function(response) {
@@ -36,10 +36,10 @@ function threeHourRange() {
 
 
                     if(date.getDate() === selectedDay) {
-                        const weatherIcon = document.getElementsByClassName("weatherIcon")
+                        const weatherIcon = document.querySelectorAll(".weatherIcon")
                         weatherIcon[index].src = "https://openweathermap.org/img/wn/" + weather["weather"][0]["icon"] + "@4x.png";
 
-                        const threeHrsTemp = document.getElementsByClassName("threeHrsTemp")
+                        const threeHrsTemp = document.querySelectorAll(".threeHrsTemp")
                         const temp = Math.floor(weather["main"]["temp"])
                         threeHrsTemp[index].innerHTML = temp+"℃"
 
@@ -49,11 +49,6 @@ function threeHourRange() {
                 })
             })
         }
-    )
+    )}
 
-
-
-
-}
-
-threeHourRange()
+// threeHourRange()
