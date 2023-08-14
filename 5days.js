@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         return `<div id="day">
             <h1 id="dayOne">${month}/${day}</h1>
-            <img id="weatherIcon1" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" alt="weather" width="10px"/>
+            <img id="weatherIcon1" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" alt="weather" width="100px"/>
             <h2 id="day1Temperature">${(weatherItem.main.temp - 273.15).toFixed(0)}°C</h2>
             <h4>Humidity: ${weatherItem.main.humidity}%</h4>
         </div>`;

@@ -59,8 +59,8 @@ html body .mainSection .mainPart .currentWeather #currentWeatherHumidity {
   font-size: 1.5rem;
 }
 html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
-  width: 10rem;
-  height: 10rem;
+  width: 12rem;
+  height: 12rem;
 }
 
 @media only screen and (max-width: 375px) {
