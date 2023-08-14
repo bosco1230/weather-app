@@ -7,14 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    const  weatherCard=(weatherItem)=>{
-        return `<div id="day1">
-            <h1 id="dayOne">${weatherItem.dt_txt.split(" ")[0]}</h1>
-            <img id="weatherIcon1" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" alt="weather" />
-            <h2 id="day1Temperature">${(weatherItem.main.temp-273.15).toFixed(1)}°C</h2>
-            <h4>Humidity:${weatherItem.main.humidity}%</h4>
-      </div>`;
-    }
+    const weatherCard = (weatherItem) => {
+        const dateParts = weatherItem.dt_txt.split(" ")[0].split("-");
+        const month = dateParts[1];
+        const day = dateParts[2];
+        
+        return `<div id="day">
+            <h1 id="dayOne">${month}/${day}</h1>
+            <img id="weatherIcon1" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" alt="weather" width="100px"/>
+            <h2 id="day1Temperature">${(weatherItem.main.temp - 273.15).toFixed(0)}°C</h2>
+            <h4>Humidity: ${weatherItem.main.humidity}%</h4>
+        </div>`;
+    };
 
     const getWeatherDetails = (cityName, lat, lon) => {
         const weather_api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lat=${lat}&lon=${lon}&appid=${APIkey}`;
