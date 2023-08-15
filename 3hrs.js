@@ -7,7 +7,7 @@ const request = `https://api.openweathermap.org/data/2.5/forecast?q=${defaultCit
 const weatherIcon = document.getElementsByClassName("weatherIcon");
 // console.log(weatherIcon)
 
-threeHourRange() {
+threeHourRange() ;{
     fetch(request)
     .then (
         function(response) {

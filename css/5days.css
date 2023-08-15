@@ -10,7 +10,7 @@ html body .mainSection .forecast .dayForecast {
   background-color: none;
 }
 html body .mainSection .forecast .dayForecast #day {
-  width: 7rem;
+  width: 9rem;
   height: auto;
   padding: 2rem 1rem;
   margin: 0 2rem 0 2rem;
@@ -34,57 +34,34 @@ html body .mainSection .forecast .dayForecast #day #weatherIcon {
   margin: 2rem;
 }
 @media only screen and (max-width: 375px) {
-  html body .mainSection .forecast .dayForecast #today,
-  html body .mainSection .forecast .dayForecast #tomorrow,
-  html body .mainSection .forecast .dayForecast #D2,
-  html body .mainSection .forecast .dayForecast #D3,
-  html body .mainSection .forecast .dayForecast #D4 {
+  html body .mainSection .forecast .dayForecast #day {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     background-image: url("../weather_images/bg2.avif");
-    width: 1.5rem;
+    width: 2rem;
+    height: 7rem;
     padding: 1rem;
     margin: 0.3rem;
   }
-  html body .mainSection .forecast .dayForecast #today h1,
-  html body .mainSection .forecast .dayForecast #tomorrow h1,
-  html body .mainSection .forecast .dayForecast #D2 h1,
-  html body .mainSection .forecast .dayForecast #D3 h1,
-  html body .mainSection .forecast .dayForecast #D4 h1 {
+  html body .mainSection .forecast .dayForecast #day h1 {
     font-size: 0.5rem;
   }
-  html body .mainSection .forecast .dayForecast #today h2,
-  html body .mainSection .forecast .dayForecast #tomorrow h2,
-  html body .mainSection .forecast .dayForecast #D2 h2,
-  html body .mainSection .forecast .dayForecast #D3 h2,
-  html body .mainSection .forecast .dayForecast #D4 h2 {
+  html body .mainSection .forecast .dayForecast #day h2 {
     font-size: 0.7rem;
   }
-  html body .mainSection .forecast .dayForecast #today #weatherIcon1,
-  html body .mainSection .forecast .dayForecast #today #weatherIcon2,
-  html body .mainSection .forecast .dayForecast #today #weatherIcon3,
-  html body .mainSection .forecast .dayForecast #today #weatherIcon4,
-  html body .mainSection .forecast .dayForecast #today #weatherIcon5,
-  html body .mainSection .forecast .dayForecast #tomorrow #weatherIcon1,
-  html body .mainSection .forecast .dayForecast #tomorrow #weatherIcon2,
-  html body .mainSection .forecast .dayForecast #tomorrow #weatherIcon3,
-  html body .mainSection .forecast .dayForecast #tomorrow #weatherIcon4,
-  html body .mainSection .forecast .dayForecast #tomorrow #weatherIcon5,
-  html body .mainSection .forecast .dayForecast #D2 #weatherIcon1,
-  html body .mainSection .forecast .dayForecast #D2 #weatherIcon2,
-  html body .mainSection .forecast .dayForecast #D2 #weatherIcon3,
-  html body .mainSection .forecast .dayForecast #D2 #weatherIcon4,
-  html body .mainSection .forecast .dayForecast #D2 #weatherIcon5,
-  html body .mainSection .forecast .dayForecast #D3 #weatherIcon1,
-  html body .mainSection .forecast .dayForecast #D3 #weatherIcon2,
-  html body .mainSection .forecast .dayForecast #D3 #weatherIcon3,
-  html body .mainSection .forecast .dayForecast #D3 #weatherIcon4,
-  html body .mainSection .forecast .dayForecast #D3 #weatherIcon5,
-  html body .mainSection .forecast .dayForecast #D4 #weatherIcon1,
-  html body .mainSection .forecast .dayForecast #D4 #weatherIcon2,
-  html body .mainSection .forecast .dayForecast #D4 #weatherIcon3,
-  html body .mainSection .forecast .dayForecast #D4 #weatherIcon4,
-  html body .mainSection .forecast .dayForecast #D4 #weatherIcon5 {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin: 1rem;
+  html body .mainSection .forecast .dayForecast #day #weatherIcon1,
+  html body .mainSection .forecast .dayForecast #day #weatherIcon2,
+  html body .mainSection .forecast .dayForecast #day #weatherIcon3,
+  html body .mainSection .forecast .dayForecast #day #weatherIcon4,
+  html body .mainSection .forecast .dayForecast #day #weatherIcon5 {
+    width: 3rem;
+  }
+  html body .mainSection .forecast .dayForecast #day h4 {
+    display: none;
+  }
+  html body .mainSection .forecast .dayForecast #day h3 {
+    display: none;
   }
 }/*# sourceMappingURL=5days.css.map */
