@@ -343,7 +343,7 @@ function threeHourRange() {
 
                 // 8 data * 5 days
                 const weatherList = data.list
-                console.log(weatherList)
+                //console.log(weatherList)
 
 
                 // to show 3 hours range's weather of the next 5 days, compare it with selected date. 
@@ -355,25 +355,40 @@ function threeHourRange() {
 
                 let index = 0;
                 weatherList.forEach(weather => {
-                    // console.log(weather)
-
-                    // 3 hours range *40
-                    const date = new Date(weather.dt*1000)
-                    // console.log(date)
-
-
-                    if(date.getDate() === selectedDay) {
-                        const weatherIcon = document.querySelectorAll(".weatherIcon")
-                        weatherIcon[index].src = "https://openweathermap.org/img/wn/" + weather["weather"][0]["icon"] + "@4x.png";
-
-                        const threeHrsTemp = document.querySelectorAll(".threeHrsTemp")
-                        const temp = Math.floor(weather["main"]["temp"])
-                        threeHrsTemp[index].innerHTML = temp+"℃"
-
+                    const date = new Date(weather.dt * 1000);
+                
+                    const hours = date.getHours();
+                    const timeRange = getTimeRange(hours);
+                
+                    if (date.getDate() === selectedDay) {
+                        const weatherIcon = document.querySelectorAll(".weatherIcon");
+                        weatherIcon[index].src =
+                            "https://openweathermap.org/img/wn/" +
+                            weather["weather"][0]["icon"] +
+                            "@4x.png";
+                
+                        const threeHrsTemp = document.querySelectorAll(".threeHrsTemp");
+                        const temp = Math.floor(weather["main"]["temp"]);
+                        threeHrsTemp[index].innerHTML = temp + "℃";
+                
+                        const threeHrsTime = document.querySelectorAll(".threeHrsTime");
+                        threeHrsTime[index].innerHTML = timeRange;
+                
                         index += 1;
-                        console.log(date.getDate(), weather["main"]["temp"])
                     }
-                })
+                });
+                
+                function getTimeRange(hour) {
+                    if (hour >= 0 && hour < 3) return "12am - 3am";
+                    if (hour >= 3 && hour < 6) return "3am - 6am";
+                    if (hour >= 6 && hour < 9) return "6am - 9am";
+                    if (hour >= 9 && hour < 12) return "9am - 12pm";
+                    if (hour >= 12 && hour < 15) return "12pm - 3pm";
+                    if (hour >= 15 && hour < 18) return "3pm - 6pm";
+                    if (hour >= 18 && hour < 21) return "6pm - 9pm";
+                    return "9pm - 12am";
+                }
+                
             })
         }
     )
