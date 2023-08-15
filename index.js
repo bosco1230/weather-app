@@ -36,6 +36,7 @@ let selectedCity = "Fukuoka"
             document.querySelector('#currentWeatherIcon').src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png';
         } catch (error) {
             console.error('Error fetching weather:', error);
+            alert(`This is not a valid city!`)
         }
     }
     
@@ -49,10 +50,12 @@ let selectedCity = "Fukuoka"
                 (error) => {
                     console.error('Error getting geolocation:', error);
                     checkWeatherByCity('Vancouver');
+                    alert(`Failed to get location!`)
                 }
             );
         } else {
             console.log('Geolocation is not available in this browser.');
+          
             checkWeatherByCity('Vancouver');
         }
     }
@@ -66,6 +69,7 @@ let selectedCity = "Fukuoka"
             })
             .catch(error => {
                 console.error('Error fetching weather by coordinates:', error);
+            
             });
     }
     
