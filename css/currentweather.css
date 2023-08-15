@@ -52,11 +52,13 @@ html body .mainSection .mainPart .currentWeather {
 html body .mainSection .mainPart .currentWeather #currentWeatherCity {
   font-size: 3rem;
   margin: 1rem;
+  color: white;
 }
 html body .mainSection .mainPart .currentWeather #currentWeatherTemp,
 html body .mainSection .mainPart .currentWeather #currentWeatherFeel,
 html body .mainSection .mainPart .currentWeather #currentWeatherHumidity {
   font-size: 1.5rem;
+  color: white;
 }
 html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
   width: 12rem;
@@ -76,7 +78,7 @@ html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
     border-radius: 4px;
     background-color: white;
     color: #333;
-    width: 8rem;
+    width: 5rem;
     height: 2rem;
   }
   html body .mainSection .headerBar .favoriteCities:focus {
@@ -97,7 +99,7 @@ html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
     align-items: center;
   }
   html body .mainSection .headerBar #searchCity #searchBar {
-    width: 8rem;
+    width: 6rem;
     height: 1.7rem;
     padding: 0 0.1rem;
     font-size: 0.3rem;
@@ -124,14 +126,16 @@ html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
   html body .mainSection .mainPart .currentWeather #currentWeatherCity {
     font-size: 1.5rem;
     margin: 1rem;
+    color: black;
   }
   html body .mainSection .mainPart .currentWeather #currentWeatherTemp,
   html body .mainSection .mainPart .currentWeather #currentWeatherFeel,
   html body .mainSection .mainPart .currentWeather #currentWeatherHumidity {
     font-size: 1rem;
+    color: black;
   }
   html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
-    width: 3rem;
-    height: 3rem;
+    width: 6rem;
+    height: 6rem;
   }
 }/*# sourceMappingURL=currentweather.css.map */
