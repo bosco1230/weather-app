@@ -297,36 +297,36 @@ function showFiveDaysWeather() {
 function toMonthText(month) {
     switch(month) {
         case 0:
-            return "Jan."
+            return "Jan "
         case 1:
-            return "Fab."
+            return "Feb "
         case 2:
-            return "Mar."
+            return "Mar "
         case 3:
-            return "Apr."
+            return "Apr "
         case 4:
-            return "May."
+            return "May "
         case 5:
-            return "Jun."
+            return "Jun "
         case 6:
-            return "Jul."
+            return "Jul "
         case 7:
-            return "Aug."
+            return "Aug "
         case 8:
-            return "Sep."
+            return "Sep "
         case 9:
-            return "Oct."
+            return "Oct "
         case 10:
-            return "Nov."
+            return "Nov "
         case 11:
-            return "Dec."
+            return "Dec "
     }
 }
 
 
 
 // // 3 hrs section
-// const APIkey = "3b2df1883208190d986bcd1b1e48eff4"
+ const APIkey = "3b2df1883208190d986bcd1b1e48eff4"
 const tempertureType = "metric"
 
 

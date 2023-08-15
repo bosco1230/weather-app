@@ -49,6 +49,7 @@ html {
                     }
                 }
                 .mainPart{
+                
                 .currentWeather {
                     
                     border-radius: 10px;
@@ -58,11 +59,13 @@ html {
                     #currentWeatherCity {
                         font-size: 3rem;
                         margin: 1rem;
+                        color: white;
                     }
                     #currentWeatherTemp,
                     #currentWeatherFeel,
                     #currentWeatherHumidity{
-                    font-size: 1.5rem;
+                    font-size: 1.5rem; color: white;
+
                     }
                     #currentWeatherIcon {
                         width: 12rem;
@@ -92,7 +95,7 @@ html {
                             border-radius: 4px;
                             background-color: white;
                             color: #333;
-                            width: 8rem;
+                            width: 5rem;
                             height: 2rem;
                             //margin-right: 5rem;
                             
@@ -116,7 +119,7 @@ html {
                             display: flex;
                             align-items: center;
                             #searchBar {
-                                width: 8rem;
+                                width: 6rem;
                                 height: 1.7rem;
                                 padding: 0 0.1rem;
                                 font-size: 0.3rem;
@@ -141,15 +144,17 @@ html {
                         #currentWeatherCity {
                             font-size: 1.5rem;
                             margin: 1rem;
+                            color: black;
                         }
                         #currentWeatherTemp,
                         #currentWeatherFeel,
                         #currentWeatherHumidity {
                             font-size: 1rem;
+                            color: black;
                         }
                         #currentWeatherIcon { 
-                            width: 3rem;
-                            height: 3rem;
+                            width: 6rem;
+                            height: 6rem;
                         }
                     }
                 }
