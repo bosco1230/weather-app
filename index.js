@@ -1,6 +1,10 @@
 // current section
-document.addEventListener("DOMContentLoaded", () => {
-    const apiKey = '4d697593455ee5751089d0a14f15ecff';
+const apiKey = '4d697593455ee5751089d0a14f15ecff';
+const temperatureType = "metric"
+let selectedCity = "Fukuoka"
+
+
+// document.addEventListener("DOMContentLoaded", () => {
     const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric';
     const cityInput = document.querySelector('#searchBar');
     const searchButton = document.querySelector('#searchBtn');
@@ -22,6 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(data);
     
             document.querySelector('#currentWeatherCity').innerHTML = data.name;
+            selectedCity = data.name
+            console.log(data.name)
+            showFiveDaysWeather();
+            threeHourRange();
             document.querySelector('#currentWeatherTemp').innerHTML = 'Temperature: ' + data.main.temp.toFixed(0) + "°C";
             document.querySelector('#currentWeatherHumidity').innerHTML = 'Humidity: ' + data.main.humidity + '%';
             document.querySelector('#currentWeatherFeel').innerHTML = 'Feels Like: ' + data.main.feels_like.toFixed(0) + '°C';
@@ -113,6 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectedCity = favoriteCitiesSelect.value;
         checkWeatherByCity(selectedCity);
         updateStarIcon(selectedCity); // Update the star icon based on saved status
+        showFiveDaysWeather();
+        threeHourRange();
     });
     
     // Function to update the star icon based on saved status
@@ -147,122 +157,184 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     populateFavoriteCities();
-});
+// });
 
 
 
-// 5 days section 
-document.addEventListener("DOMContentLoaded", () => {
-    const cityInput=document.querySelector('#searchBar');
-    const searchButton= document.querySelector('#searchBtn');
-    const weatherCardsDiv= document.querySelector('.dayForecast');
-
-    const APIkey='4d697593455ee5751089d0a14f15ecff'
+// // 5 days section 
 
 
+let weatherIcons = document.getElementsByClassName("weatherIcons");
+let theDay = 0;
 
-    const weatherCard = (weatherItem) => {
-        const dateParts = weatherItem.dt_txt.split(" ")[0].split("-");
-        const month = dateParts[1];
-        const day = dateParts[2];
-        
-        return `<div id="day">
-            <h1 id="dayOne">${month}/${day}</h1>
-            <img id="weatherIcon1" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" alt="weather" width="100px"/>
-            <h2 id="day1Temperature">${(weatherItem.main.temp - 273.15).toFixed(0)}°C</h2>
-            <h3 id="day1Temperature">Feels Like:${(weatherItem.main.feels_like-273.15).toFixed(0)}°C</h3>
-            <h4>Humidity: ${weatherItem.main.humidity}%</h4>
-        </div>`;
-    };
 
-    const getWeatherDetails = (cityName, lat, lon) => {
-        const weather_api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lat=${lat}&lon=${lon}&appid=${APIkey}`;
+//calling 3hrs function bny addeventlistener
+const day1 = document.getElementById("day1")
+day1.addEventListener("click", () => {
+    theDay = 1;
+    selectedCity = document.getElementById("currentWeatherCity").innerHTML
+    threeHourRange();
+})
 
-        fetch(weather_api)
-            .then(res => res.json())
-            .then(data => {
-                const uniqueDays = [];
+const day2 = document.getElementById("day2")
+day2.addEventListener("click", () => {
+    theDay = 2;
+    selectedCity = document.getElementById("currentWeatherCity").innerHTML
+    threeHourRange();
+})
 
-                const fiveDays = data.list.filter(forecast => {
-                    const forecastDate = new Date(forecast.dt_txt).getDate();
-                    if (!uniqueDays.includes(forecastDate)) {
-                        if (uniqueDays.length >= 5) {
-                            return false;
+const day3 = document.getElementById("day3")
+day3.addEventListener("click", () => {
+    theDay = 3;
+    selectedCity = document.getElementById("currentWeatherCity").innerHTML
+    threeHourRange();
+})
+
+const day4 = document.getElementById("day4")
+day4.addEventListener("click", () => {
+    theDay = 4;
+    selectedCity = document.getElementById("currentWeatherCity").innerHTML
+    threeHourRange();
+})
+
+const day5 = document.getElementById("day5")
+day5.addEventListener("click", () => {
+    theDay = 5;
+    selectedCity = document.getElementById("currentWeatherCity").innerHTML
+    threeHourRange();
+})
+
+
+function showFiveDaysWeather() {
+    const request = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&units=${temperatureType}&appid=${apiKey}`
+
+    console.log("a")
+    fetch(request)
+    .then(
+        function(response) {
+            if(response.status !== 200){
+                return;
+            }
+            response.json().then(function(fiveDaysWeather) {
+                console.log(fiveDaysWeather);
+
+
+                // get currentDate
+                let currentDate = new Date();
+
+                
+                // for the if statement to specific the date, the time and weather infos
+                let day = 1;
+
+
+                // get all the weather info
+                fiveDaysWeather["list"].forEach( eachWeatherInfo=> {
+                    // console.log(eachWeatherInfo);
+                
+
+                    // convert unix-time to date
+                    let date = new Date(eachWeatherInfo["dt"] * 1000);  
+
+
+                    // show the next 5 days' weather              
+                    if(date.getDate() === currentDate.getDate() + day) {
+                        // just getting time at the same time everyday
+                        if(date.getHours() >=6 && date.getHours() <=9) {
+
+
+                            // show days for the next 5 days
+                            if(date.getDay() === 0){
+                                let showDay = "Sun"
+                                document.getElementById(`showDay${day}`).innerHTML= showDay + " " + toMonthText(date.getMonth()) + date.getDate()     
+                                console.log("a")
+                            } else if(date.getDay()=== 1){
+                                let showDay = "Mon"
+                                document.getElementById(`showDay${day}`).innerHTML= showDay + " " + toMonthText(date.getMonth()) + date.getDate() 
+                                console.log("b")
+                            } else if(date.getDay() === 2){
+                                let showDay = "Tue"
+                                document.getElementById(`showDay${day}`).innerHTML= showDay + " " + toMonthText(date.getMonth()) + date.getDate() 
+                                console.log("c")
+                            } else if(date.getDay() === 3){
+                                let showDay = "Wed"
+                                document.getElementById(`showDay${day}`).innerHTML= showDay + " " + toMonthText(date.getMonth()) + date.getDate() 
+                                console.log("d")
+                            } else if(date.getDay() === 4){
+                                let showDay = "Thu"
+                                document.getElementById(`showDay${day}`).innerHTML= showDay + " " + toMonthText(date.getMonth()) + date.getDate() 
+                                console.log("e")
+                            } else if(date.getDay() === 5){
+                                let showDay = "Fri"
+                                document.getElementById(`showDay${day}`).innerHTML= showDay + " " + toMonthText(date.getMonth()) + date.getDate() 
+                            } else if(date.getDay() === 6){
+                                let showDay = "Sat"
+                                document.getElementById(`showDay${day}`).innerHTML= showDay + " " + toMonthText(date.getMonth()) + date.getDate() 
+                            }
+                            
+                            // get the month and the day for the next 5days
+                            // document.getElementById(`monthOn${day}Day`).innerHTML= toMonthText(date.getMonth()) + date.getDate()
+                            
+                            // document.getElementById(`day${day}-temp`).innerHTML= eachWeatherInfo["weather"][0]["main"]
+                            weatherIcons[day-1].src = "https://openweathermap.org/img/wn/" + eachWeatherInfo["weather"][0]["icon"] + "@4x.png";
+
+                            let temp = Math.floor(eachWeatherInfo["main"]["temp"])
+                            console.log(temp)
+                            document.getElementById(`day${day}-temp`).innerHTML= temp + "℃"
+                            
+                            day = day +1; 
                         }
-                        return uniqueDays.push(forecastDate);
                     }
-                });
-
-                cityInput.value = "";
-                weatherCardsDiv.innerHTML = "";
-
-                fiveDays.forEach(weatherItem => {
-                    weatherCardsDiv.insertAdjacentHTML('beforeend', weatherCard(weatherItem));
-                });
+                })
             })
-            .catch(() => {
-                alert('An error occurred while fetching weather data.');
-            });
-    }
-
-    const getCoordinates = () => {
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const { latitude, longitude } = position.coords;
-                    getWeatherDetails('', latitude, longitude); // Empty string as city name for default
-                },
-                (error) => {
-                    fetchWeatherByCity('Vancouver');
-                    alert('Error getting geolocation: ' + error.message);
-                }
-            );
-        } else {
-            fetchWeatherByCity('Vancouver');
-            alert('Geolocation is not available in this browser.');
         }
+    ).catch((error) => {
+        console.log("Fetch Error: " + error)
+    })
+}
+
+// showFiveDaysWeather()
+
+function toMonthText(month) {
+    switch(month) {
+        case 0:
+            return "Jan."
+        case 1:
+            return "Fab."
+        case 2:
+            return "Mar."
+        case 3:
+            return "Apr."
+        case 4:
+            return "May."
+        case 5:
+            return "Jun."
+        case 6:
+            return "Jul."
+        case 7:
+            return "Aug."
+        case 8:
+            return "Sep."
+        case 9:
+            return "Oct."
+        case 10:
+            return "Nov."
+        case 11:
+            return "Dec."
     }
-
-    getCoordinates();
-
-    searchButton.addEventListener('click', () => {
-        const cityName = cityInput.value.trim();
-        if (cityName) {
-            fetchWeatherByCity(cityName);
-        }
-    });
-
-    const fetchWeatherByCity = (cityName) => {
-        const GEOCODING_API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`;
-
-        fetch(GEOCODING_API_URL)
-            .then(res => res.json())
-            .then(data => {
-                if (!data.coord) {
-                    alert(`${cityName} cannot be found!`);
-                    return;
-                }
-                const { lat, lon } = data.coord;
-                getWeatherDetails(cityName, lat, lon);
-            })
-            .catch(() => {
-                alert('An error occurred while fetching weather data.');
-            });
-    }
-});
+}
 
 
-// 3 hrs section
-const APIkey = "3b2df1883208190d986bcd1b1e48eff4"
-const defaultCity = "Vancouver"
+
+// // 3 hrs section
+// const APIkey = "3b2df1883208190d986bcd1b1e48eff4"
 const tempertureType = "metric"
-const request = `https://api.openweathermap.org/data/2.5/forecast?q=${defaultCity}&appid=${APIkey}&units=${tempertureType}`
 
 
 const weatherIcon = document.getElementsByClassName("weatherIcon");
 // console.log(weatherIcon)
 
 function threeHourRange() {
+    const request = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${apiKey}&units=${tempertureType}`
     fetch(request)
     .then (
         function(response) {
@@ -271,12 +343,12 @@ function threeHourRange() {
 
                 // 8 data * 5 days
                 const weatherList = data.list
-                // console.log(weatherList)
+                console.log(weatherList)
 
 
                 // to show 3 hours range's weather of the next 5 days, compare it with selected date. 
                 const currentDate = new Date();
-                const selectedDay = currentDate.getDate() + 1 /* theDay */
+                const selectedDay = currentDate.getDate() + theDay
                 // console.log(currentDate)
                 // console.log(currentDate.getDate())
 
@@ -287,7 +359,7 @@ function threeHourRange() {
 
                     // 3 hours range *40
                     const date = new Date(weather.dt*1000)
-                    console.log(date)
+                    // console.log(date)
 
 
                     if(date.getDate() === selectedDay) {
@@ -308,5 +380,5 @@ function threeHourRange() {
 
 }
 
-threeHourRange()
+// threeHourRange()
 
