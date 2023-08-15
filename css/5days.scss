@@ -1,7 +1,11 @@
 html {
     body {
+        height: auto;
         .mainSection {
             .forecast {
+                li { 
+                    list-style-type: none;
+                }
                 display: flex;
                 flex-direction: column;
                 .dayForecast {
@@ -10,7 +14,8 @@ html {
                     flex-direction: row;
                     justify-content: space-evenly;
                     background-color: none;
-                    #day1,#day2,#day3,#day4,#day5 {
+
+                        #day1,#day2,#day3,#day4,#day5 {
                         width: 9rem; 
                         height: auto;
                         padding: 2rem 1rem;
@@ -21,6 +26,7 @@ html {
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
+                        list-style-type: none;
                         h1 {
                             margin: 0;
                             font-size: 1.5rem;

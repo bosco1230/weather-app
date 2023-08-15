@@ -27,4 +27,28 @@
 }
 #threeHrsbody .threeHrsInfo .threeHrsTemp {
   font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 375px) {
+  #threeHrsbody {
+    width: 90%;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    font-weight: bold;
+  }
+  #threeHrsbody .threeHrsInfo {
+    width: 130%;
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #118ab2;
+    border-radius: 10px;
+  }
+  #threeHrsbody .threeHrsInfo img {
+    border: 1px;
+    width: 20%;
+    height: auto;
+  }
 }/*# sourceMappingURL=3hrs.css.map */

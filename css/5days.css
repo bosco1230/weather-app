@@ -1,6 +1,12 @@
+html body {
+  height: auto;
+}
 html body .mainSection .forecast {
   display: flex;
   flex-direction: column;
+}
+html body .mainSection .forecast li {
+  list-style-type: none;
 }
 html body .mainSection .forecast .dayForecast {
   height: auto;
@@ -20,6 +26,7 @@ html body .mainSection .forecast .dayForecast #day1, html body .mainSection .for
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  list-style-type: none;
 }
 html body .mainSection .forecast .dayForecast #day1 h1, html body .mainSection .forecast .dayForecast #day2 h1, html body .mainSection .forecast .dayForecast #day3 h1, html body .mainSection .forecast .dayForecast #day4 h1, html body .mainSection .forecast .dayForecast #day5 h1 {
   margin: 0;
