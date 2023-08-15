@@ -70,8 +70,8 @@ html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
     justify-content: center;
   }
   html body .mainSection .headerBar .favoriteCities {
-    font-size: 16px;
-    padding: 8px;
+    font-size: 0.1rem;
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: white;
@@ -99,19 +99,19 @@ html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
   html body .mainSection .headerBar #searchCity #searchBar {
     width: 8rem;
     height: 1.7rem;
-    padding: 0 0.2rem;
-    font-size: 0.5rem;
+    padding: 0 0.1rem;
+    font-size: 0.3rem;
   }
   html body .mainSection .headerBar #searchCity #searchBar::-moz-placeholder {
-    font-size: 0.5rem;
+    font-size: 0.3rem;
   }
   html body .mainSection .headerBar #searchCity #searchBar::placeholder {
-    font-size: 0.5rem;
+    font-size: 0.3rem;
   }
   html body .mainSection .headerBar #searchCity #searchBtn {
-    width: 4rem;
+    width: 3rem;
     height: 1.7rem;
-    font-size: 0.5rem;
+    font-size: 0.2rem;
     padding: 0;
   }
   html body .mainSection .mainPart {
@@ -119,6 +119,7 @@ html body .mainSection .mainPart .currentWeather #currentWeatherIcon {
   }
   html body .mainSection .mainPart .currentWeather {
     display: flex;
+    justify-content: center;
   }
   html body .mainSection .mainPart .currentWeather #currentWeatherCity {
     font-size: 1.5rem;

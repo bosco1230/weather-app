@@ -11,7 +11,7 @@ html {
                     justify-content: space-evenly;
                     background-color: none;
                     #day {
-                        width: 7rem;
+                        width: 9rem;
                         height: auto;
                         padding: 2rem 1rem;
                         margin:0 2rem 0 2rem;
@@ -42,18 +42,21 @@ html {
     @media only screen and (max-width: 375px) {
         body {
             .mainSection {
-                
                     .forecast {
                         .dayForecast {
-                            #today,
-                            #tomorrow,
-                            #D2,
-                            #D3,
-                            #D4 {
+                        
+                           
+                            #day { 
+                                display:flex;
+                                flex-direction: column;
+                                justify-content: space-evenly;
+                                align-items: center;
                                 background-image: url("../weather_images/bg2.avif");
-                                width: 1.5rem;
+                                width: 2rem;
+                                height:7rem;
                                 padding: 1rem;
                                 margin: 0.3rem;
+                              
                                 h1 {
                                     font-size: 0.5rem;
                                 }
@@ -65,9 +68,14 @@ html {
                                 #weatherIcon3,
                                 #weatherIcon4,
                                 #weatherIcon5 {
-                                    width: 1.5rem;
-                                    height: 1.5rem;
-                                    margin: 1rem;
+                                    width: 3rem;
+                                    
+                                }
+                                h4{
+                                    display:none
+                                }
+                                h3{
+                                    display:none
                                 }
                             }
                         }

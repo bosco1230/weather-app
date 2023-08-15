@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <h1 id="dayOne">${month}/${day}</h1>
             <img id="weatherIcon1" src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@2x.png" alt="weather" width="100px"/>
             <h2 id="day1Temperature">${(weatherItem.main.temp - 273.15).toFixed(0)}°C</h2>
+            <h2 id="day1Temperature">${(weatherItem.main.feels_like)}°C</h2
             <h4>Humidity: ${weatherItem.main.humidity}%</h4>
         </div>`;
     };
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const getWeatherDetails = (cityName, lat, lon) => {
         const weather_api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&lat=${lat}&lon=${lon}&appid=${APIkey}`;
 
-        fetch(weather_api)
+        fetch(weather_api) 
             .then(res => res.json())
             .then(data => {
                 const uniqueDays = [];

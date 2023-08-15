@@ -68,7 +68,7 @@ html {
                         width: 12rem;
                         height: 12rem;
                     }
-                    width:95%
+                    width:95% 
                 }
               
                 }
@@ -86,14 +86,15 @@ html {
                         flex-direction: row;
                         justify-content: center; 
                         .favoriteCities {
-                            font-size: 16px;
-                            padding: 8px;
+                            font-size: 0.1rem;
+                            padding: 6px;
                             border: 1px solid #ccc;
                             border-radius: 4px;
                             background-color: white;
                             color: #333;
                             width: 8rem;
                             height: 2rem;
+                            //margin-right: 5rem;
                             
                             &:focus {
                                 border-color: #4CAF50;
@@ -117,16 +118,17 @@ html {
                             #searchBar {
                                 width: 8rem;
                                 height: 1.7rem;
-                                padding: 0 0.2rem;
-                                font-size: 0.5rem;
+                                padding: 0 0.1rem;
+                                font-size: 0.3rem;
+                                //margin-left: 3rem;
                             }
                             #searchBar::placeholder {
-                                font-size: 0.5rem;
+                                font-size: 0.3rem;
                             }
                             #searchBtn {   
-                                width: 4rem;
+                                width: 3rem;
                                 height: 1.7rem;
-                                font-size: 0.5rem;
+                                font-size: 0.2rem;
                                 padding: 0;
                             }
                         }
@@ -135,6 +137,7 @@ html {
                         display: flex;
                     .currentWeather {
                         display: flex;
+                        justify-content: center;
                         #currentWeatherCity {
                             font-size: 1.5rem;
                             margin: 1rem;
