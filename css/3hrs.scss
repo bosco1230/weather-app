@@ -37,3 +37,45 @@
         }
     }
 }
+
+@media only screen and (max-width: 375px) {
+    #threeHrsbody {
+        width: 90%;
+        height: 20rem;
+        // border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-evenly;
+        // align-items: center;
+        margin: auto;
+        font-weight: $fontWeight;
+    
+        .threeHrsInfo {
+            width: 130%;
+            height: 2rem;
+            display: flex;
+            flex-direction:row;
+            // align-items: center;
+            // justify-content: space-evenly;
+            background-color: $weatherSectionBGColor;
+            border-radius: 10px;
+    
+    
+//             .threeHrsTime {
+//                 // font-size: 1.2rem;
+//             }
+            
+            img {
+                border: 1px;
+                width: 20%;
+                height: auto;
+            }
+    
+//             .threeHrsTemp {
+//                 // margin: 0;
+//                 font-size: 1.5rem;
+//             }
+        }
+    }
+
+}

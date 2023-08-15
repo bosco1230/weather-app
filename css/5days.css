@@ -1,3 +1,6 @@
+html body {
+  height: auto;
+}
 html body .mainSection .forecast {
   display: flex;
   flex-direction: column;
