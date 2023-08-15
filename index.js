@@ -1,6 +1,9 @@
 // current section
+const apiKey = '4d697593455ee5751089d0a14f15ecff';
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
-    const apiKey = '4d697593455ee5751089d0a14f15ecff';
     const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric';
     const cityInput = document.querySelector('#searchBar');
     const searchButton = document.querySelector('#searchBtn');
@@ -19,9 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             const data = await response.json();
     
-            console.log(data);
+            console.log(data.name);
     
             document.querySelector('#currentWeatherCity').innerHTML = data.name;
+            selectedCity = data.name
+            threeHourRange();
+
             document.querySelector('#currentWeatherTemp').innerHTML = 'Temperature: ' + data.main.temp.toFixed(0) + "°C";
             document.querySelector('#currentWeatherHumidity').innerHTML = 'Humidity: ' + data.main.humidity + '%';
             document.querySelector('#currentWeatherFeel').innerHTML = 'Feels Like: ' + data.main.feels_like.toFixed(0) + '°C';
@@ -112,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     favoriteCitiesSelect.addEventListener('change', () => {
         const selectedCity = favoriteCitiesSelect.value;
         checkWeatherByCity(selectedCity);
+        threeHourRange()
         updateStarIcon(selectedCity); // Update the star icon based on saved status
     });
     
@@ -150,6 +157,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// for calling 3hrs function
+const day1 = document.getElementById("day1")
+const day2 = document.getElementById("day2")
+const day3 = document.getElementById("day3")
+const day4 = document.getElementById("day4")
+const day5 = document.getElementById("day5")
+
 
 // 5 days section 
 document.addEventListener("DOMContentLoaded", () => {
@@ -158,6 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const weatherCardsDiv= document.querySelector('.dayForecast');
 
     const APIkey='4d697593455ee5751089d0a14f15ecff'
+
 
 
 
@@ -248,14 +263,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert('An error occurred while fetching weather data.');
             });
     }
+
+    
 });
+
+// calling 3hrs function
+day1.addEventListener("click", () => {
+    console.log("aaa")
+    theDay = 1;
+    threeHourRange();
+    console.log("aaa")
+})
 
 
 // 3 hrs section
-const APIkey = "3b2df1883208190d986bcd1b1e48eff4"
-const defaultCity = "Vancouver"
+// const APIkey = "3b2df1883208190d986bcd1b1e48eff4"
+// const defaultCity = "Vancouver"
 const tempertureType = "metric"
-const request = `https://api.openweathermap.org/data/2.5/forecast?q=${defaultCity}&appid=${APIkey}&units=${tempertureType}`
+let selectedCity = "Vancouver";
+const request = `https://api.openweathermap.org/data/2.5/forecast?q=${selectedCity}&appid=${apiKey}&units=${tempertureType}`
+// const request = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=${tempertureType}`
+let theDay = 0;
 
 
 const weatherIcon = document.getElementsByClassName("weatherIcon");
@@ -275,8 +303,8 @@ function threeHourRange() {
 
                 // to show 3 hours range's weather of the next 5 days, compare it with selected date. 
                 const currentDate = new Date();
-                const selectedDay = currentDate.getDate() + 1 /* theDay */
-                // console.log(currentDate)
+                const selectedDay = currentDate.getDate() + theDay 
+                console.log(currentDate)
                 // console.log(currentDate.getDate())
 
 
@@ -286,7 +314,8 @@ function threeHourRange() {
 
                     // 3 hours range *40
                     const date = new Date(weather.dt*1000)
-                    console.log(date)
+                    // console.log(date)
+                    
 
 
                     if(date.getDate() === selectedDay) {
@@ -298,7 +327,7 @@ function threeHourRange() {
                         threeHrsTemp[index].innerHTML = temp+"℃"
 
                         index += 1;
-                        console.log(date.getDate(), weather["main"]["temp"])
+                        // console.log(date.getDate(), weather["main"]["temp"])
                     }
                 })
             })
@@ -307,5 +336,11 @@ function threeHourRange() {
 
 }
 
-threeHourRange()
+// threeHourRange()
+
+
+// const threeHrsTemp  = document.getElementsByClassName("threeHrsTime")
+
+
+
 
